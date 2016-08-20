@@ -1,0 +1,9 @@
+0b64662379798a3e83164581d477cb48 *DESCRIPTION
+dc41c0297dab1007ac3c0a9f89040acb *NAMESPACE
+cd14b56ed2aeab6001a3c13ebea22287 *R/ctqr.R
+981bca4d455b680021e994c1ee7384b4 *man/ctqr-internal.Rd
+95d3327fa5a95a679febaf1ff73929cf *man/ctqr-package.Rd
+e6d823e9f3ed54298706db2d78bc1f94 *man/ctqr.Rd
+fae1be04c06f6d335f6a1f916b70d09e *man/ctqr.control.Rd
+7073eea8abac0d26f0e97eb9875f49ea *man/plot.ctqr.Rd
+3a6bbe3264970ece33a1831cd7a5aa58 *man/predict.ctqr.Rd
