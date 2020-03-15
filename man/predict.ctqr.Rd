@@ -33,7 +33,7 @@ If \kbd{se = FALSE}, a matrix of fitted values, with rows corresponding to diffe
 \item{se.fit}{a matrix of estimated standard errors.}
 }
 \author{
-Paolo Frumento
+Paolo Frumento \email{paolo.frumento@unipi.it}
 }
 \seealso{
 \code{\link{ctqr}}

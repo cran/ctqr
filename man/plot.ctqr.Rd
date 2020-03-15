@@ -29,7 +29,7 @@ With this command, a plot of \eqn{\beta(p)} versus \eqn{p} is created, provided 
 two quantiles have been estimated. Dashed lines represent 95\% confidence intervals, while the horizontal dotted line indicates the zero.
 }
 \author{
-Paolo Frumento \email{paolo.frumento@ki.se}
+Paolo Frumento \email{paolo.frumento@unipi.it}
 }
 \seealso{
 \code{\link{ctqr}}

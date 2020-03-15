@@ -72,13 +72,13 @@ will only work if \code{p} is scalar.
 
 
 \references{
-Frumento, P., and Bottai, M. (2016). An estimating equation for censored and truncated quantile regression.
+Frumento, P., and Bottai, M. (2017). An estimating equation for censored and truncated quantile regression. Computational Statistics and Data Analysis, 113, 53-63.
  
 Ackerberg, D., Chen, X., and Hahn, J. (2012). A practical asymptotic variance estimator 
 for two-step semiparametric estimators. The Review of Economics and Statistics, 94 (2), 481-498.
 }
 \author{
-Paolo Frumento <paolo.frumento@ki.se>
+Paolo Frumento <paolo.frumento@unipi.it>
 }
 \note{
 The first-step estimator (the \kbd{CDF} argument) is computed using the \code{pchreg} function in the

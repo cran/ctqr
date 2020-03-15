@@ -11,8 +11,8 @@ Asymptotic theory of two-steps estimators is used to estimate the asymptotic cov
 \tabular{ll}{
 Package: \tab ctqr\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2016-02-18\cr
+Version: \tab 1.1\cr
+Date: \tab 2020-03-15\cr
 License: \tab GPL-2\cr
 }
 The main function \code{\link{ctqr}} is used for model fitting. 
@@ -23,10 +23,10 @@ that can be used to set the operational parameters for the estimation algorithm.
 \author{
 Paolo Frumento
 
-Maintainer: Paolo Frumento <paolo.frumento@ki.se>
+Maintainer: Paolo Frumento <paolo.frumento@unipi.it>
 }
 \references{
-Frumento, P., and Bottai, M. (2016). An estimating equation for censored and truncated quantile regression.
+Frumento, P., and Bottai, M. (2017). An estimating equation for censored and truncated quantile regression. Computational Statistics and Data Analysis, 113, 53-63.
 }
 \keyword{ package }
 \seealso{

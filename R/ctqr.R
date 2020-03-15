@@ -2,7 +2,7 @@
 #' @importFrom stats model.weights model.offset printCoefmat coef nobs vcov .getXlevels pnorm
 #' @importFrom survival Surv is.Surv
 #' @importFrom graphics plot points abline text
-#' @importFrom utils menu
+#' @importFrom utils menu getFromNamespace
 #' @import pch
 
 
@@ -75,8 +75,9 @@ quickpred <- function(obj,y){
 # Compute starting points
 start <- function(CDF, p, x, y, off, weights){
 
+  predQ.pch <- getFromNamespace("predQ.pch", ns = "pch")
 	lambda <- CDF$lambda
-	predQ <- pch:::predQ.pch(CDF, p = p)
+	predQ <- predQ.pch(CDF, p = p)
 	m <- attr(y, "m"); M <- attr(y, "M")  
 	if(length(weights) == 1){weights <- rep.int(1, nrow(x))}
 	if(length(off) == 1){off <- rep.int(0, nrow(x))}
@@ -192,7 +193,7 @@ ctqr <- function(formula, data, weights, p = 0.5, CDF, control = ctqr.control(),
 
 	if((CDF.in <- !missing(CDF))){
 		if(class(CDF) != "pch")
-			{stop("'CDF' must be an object of class 'pch'", call. = FALSE)}
+		{stop("'CDF' must be an object of class 'pch'", call. = FALSE)}
 		if(any(is.na(match(all.vars(formula(cl)), all.vars(CDF$call)))))
 			{stop("some of the variables in 'formula' is not included in 'CDF'")}
 	}
@@ -734,7 +735,7 @@ asy.qr <- function(z,y,d,x, weights, p, CDF, fit, fit.ok){
 		while(!V2.ok){
 			H2 <- est.H2(eta[,j], y,d,x,w2, a = a)
 			try.V2 <- try(chol2inv(chol(-H2)), silent = TRUE)
-			if(class(try.V2) != "try-error"){V2[[j]] <- try.V2; V2.ok <- TRUE}
+			if(!inherits(try.V2, "try-error")){V2[[j]] <- try.V2; V2.ok <- TRUE}
 			else{a <- a + 0.01}
 		}
 	}
