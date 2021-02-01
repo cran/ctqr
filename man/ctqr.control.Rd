@@ -23,7 +23,7 @@ ctqr.control(tol = 1e-06, maxit = 1000, a = 0.5, b = 1.25)
 \details{
   For a current estimate \kbd{beta}, a new estimate is computed as 
   \kbd{beta_new = beta + delta*s(beta)}, where \kbd{s(beta)} is the current 
-  value of the objective function and \kbd{delta} is a positive multiplier. 
+  value of the estimating equation and \kbd{delta} is a positive multiplier. 
   If \kbd{sum(s(beta_new)^2) < sum(s(beta)^2)}, the iteration is accepted and 
  \kbd{delta} is multiplied by \kbd{b}. Otherwise, \kbd{beta_new} is rejected and 
   \kbd{delta} is multiplied by \kbd{a}. By default, \kbd{a = 0.5} and \kbd{b = 1.25}. 
