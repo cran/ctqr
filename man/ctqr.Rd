@@ -33,7 +33,7 @@ a list of operational parameters for the optimization algorithm, usually passed 
 \item{\ldots}{for future arguments.}
 }
 \details{
-This function implements the method described in Frumento and Bottai (2017) for censored, truncated quantile regression, and the method described in Frumento (2021) for interval-censored quantile regression.
+This function implements the method described in Frumento and Bottai (2017) for censored, truncated quantile regression, and Frumento (2022) for interval-censored quantile regression.
 
 The left side of \kbd{formula} must be of the form \kbd{Surv(time, event)} if the data are right-censored, \kbd{Surv(time0, time, event)} if the data are right-censored and left-truncated (\kbd{time0 < time}, \code{time0} can be \kbd{-Inf}), and \kbd{Surv(time1, time2, type = "interval2")} if the data are interval-censored (use \kbd{time1 = time2} for exact observations, \kbd{time1 = -Inf} or \kbd{NA} for left-censored, and \kbd{time2 = Inf} or \kbd{NA} for right-censored). Using \kbd{Surv(time)} is also allowed and indicates that the data are neither censored nor truncated.
 
@@ -75,7 +75,7 @@ for two-step semiparametric estimators. The Review of Economics and Statistics, 
 
 Frumento, P., and Bottai, M. (2017). An estimating equation for censored and truncated quantile regression. \emph{Computational Statistics and Data Analysis}, Vol.113, pp.53-63. ISSN: 0167-9473.
 
-Frumento, P. (2021). A quantile regression estimator for interval-censored data (unpublished).
+Frumento, P. (2022). A quantile regression estimator for interval-censored data. \emph{The International Journal of Biostatistics}, 19 (1), pp. 81-96.
 }
 
 \note{
@@ -89,13 +89,7 @@ the estimates of the quantile regression coefficients and their standard errors 
 If the data are neither censored nor truncated, the \code{CDF} does not enter the estimating equation of the model. However, since the first-step estimator is used to compute the starting points, 
 the final estimates may be sensitive to the supplied \code{CDF}.
 
-NOTE 2. Right-censoring is a special case of interval censoring, in which exact events are identified by
-\code{time2 = time1}, while censored observations have \code{time2 = Inf}.
-Note, however, that \code{ctqr(Surv(time1, time2, type = "interval2") ~ x)}
-will not be identical to \code{ctqr(Surv(time = time1, event = (time2 < Inf)) ~ x)}.
-The estimating equation used for interval-censored data is that described in Frumento (2018),
-while that used for right-censored data is that of Frumento and Bottai (2017). The two 
-estimating equations are only asymptotically equivalent (see Frumento 2018 for details).
+NOTE 2. Right-censoring is a special case of interval censoring, in which exact events are identified by \code{time2 = time1}, while censored observations have \code{time2 = Inf}. Note, however, that \code{ctqr(Surv(time1, time2, type = "interval2") ~ x)} will not be identical to \code{ctqr(Surv(time = time1, event = (time2 < Inf)) ~ x)}. The estimating equation used for interval-censored data is that described in Frumento (2022), while that used for right-censored data is that of Frumento and Bottai (2017). The two estimating equations are only asymptotically equivalent.
 
 
 }

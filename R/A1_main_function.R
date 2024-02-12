@@ -82,7 +82,9 @@ start <- function(CDF, p, x, y, off, weights){
 		qp <- (predQ[,j] - m)/(M - m)*10
 		ww <- weights
 		ww[qp > 10] <- 0
+
 		fit <- lm.wfit(x,qp, ww, offset = off)
+
 		coe <- fit$coef
 		out <- cbind(out, coe)
 	}
@@ -141,7 +143,7 @@ ee.icens <- function(beta, tau, CDF, V){
 
 
 # Estimation algorithm
-qr.gs <- function(beta0, check, p, CDF,
+qr_gs <- function(beta0, check, p, CDF,
 a = 0.5, b = 1.5, maxit = 1000, tol = 1e-6, type){
 
 	if(type == "trunc"){ee <- ee.cens.trunc}
@@ -175,7 +177,6 @@ a = 0.5, b = 1.5, maxit = 1000, tol = 1e-6, type){
 		####
 
 		for(i in 1:maxit){
-
 			beta.step <- delta*s; beta.step[is.na(beta.step)] <- 0
 			if(max(abs(beta.step)) < tol){break}
 			new.beta <- beta + beta.step
@@ -226,6 +227,9 @@ ctqr <- function(formula, data, weights, p = 0.5, CDF, control = ctqr.control(),
 		if(any(is.na(match(all.vars(formula), attr(CDF$call, "all.vars")))))
 		  {stop("some of the variables in 'formula' is not included in 'CDF'")}
 	}
+	if(any(p <= 0 | p >= 1)){stop("0 < p < 1 is required")}
+	if(!(all(sort(names(control)) == c("a", "b", "maxit", "tol"))))
+	  {stop("Invalid control list, please use ctqr.control()")}
 
 	mf <- match.call(expand.dots = FALSE)
 	mf$formula <- formula
@@ -285,9 +289,8 @@ ctqr <- function(formula, data, weights, p = 0.5, CDF, control = ctqr.control(),
 
 	# fit #######################################################################
 
-	if(any(p <= 0 | p >= 1)){stop("0 < p < 1 is required")}
 	p <- sort(p)
-	method <- "qr"; fitfun <- qr.gs # or "gal", gal.gs
+	method <- "qr"; fitfun <- qr_gs # or "gal", gal.gs
 	check <- check.in.ctqr(z,y,d,x,off,weights, CDF$breaks)
 	beta0 <- start(CDF, p, check$x, check$y, check$off, check$weights)
 	CDF0 <- CDF; CDF <- safe.pch(CDF, min(1e-6, 1/n/10))
@@ -458,8 +461,8 @@ asy.qr.ct <- function(z,y,d,x, weights, p, fit, fit.ok){
 		# I assume that "something went wrong" and just return the naif.
 		
 		Omega_naif <- V2[[j]]%*%U[ind2,ind2]%*%t(V2[[j]]) # Naif covariance matrix
-		test <- sqrt(diag(Omega)/diag(Omega_naif))
-		if(any(test > 5)){Omega <- Omega_naif} 
+		test <- suppressWarnings(sqrt(diag(Omega)/diag(Omega_naif))) # sometimes diag(Omega) < 0
+		if(any(is.na(test) | test > 5)){Omega <- Omega_naif}
 
 		# no special motivation for the multiplicative factor. Empirically, test is typically less than 2.
 	
@@ -597,8 +600,9 @@ asy.qr.ic <- function(z,y,d,x, weights, p, fit, fit.ok){
       # I assume that "something went wrong" and just return the naif.
     
     Omega_naif <- V2[[j]]%*%U[ind2,ind2]%*%t(V2[[j]]) # Naif covariance matrix
-    test <- sqrt(diag(Omega)/diag(Omega_naif))
-    if(any(test > 5)){Omega <- Omega_naif} 
+    test <- suppressWarnings(sqrt(diag(Omega)/diag(Omega_naif))) # sometimes diag(Omega) < 0
+    if(any(is.na(test) | test > 5)){Omega <- Omega_naif}
+
     # no special motivation for the multiplicative factor. Empirically, test is typically less than 2.
 
     ###################

@@ -1,5 +1,32 @@
 \name{internals}
 \alias{internals}
+
+\alias{findagoodestimator}
+\alias{safe.pch}
+\alias{quickpred}
+\alias{check.in.ctqr}
+\alias{start}
+\alias{ee.u}
+\alias{ee.cens}
+\alias{ee.cens.trunc}
+\alias{ee.icens}
+\alias{qr_gs}
+
+\alias{nobs.ctqr}
+\alias{vcov.ctqr}
+\alias{coef.ctqr}
+\alias{print.ctqr}
+\alias{summary.ctqr}
+\alias{print.summary.ctqr}
+
+\alias{firstep.ct}
+\alias{firstep.ic}
+\alias{asy.qr.ct}
+\alias{asy.qr.ic}
+
+\alias{safesolve}
+\alias{regularize_corr}
+
 \title{Internal Functions}
 \description{
 Functions for internal use only.
@@ -14,7 +41,7 @@ ee.u(beta, tau, CDF, V)
 ee.cens(beta, tau, CDF, V)
 ee.cens.trunc(beta, tau, CDF, V)
 ee.icens(beta, tau, CDF, V)
-qr.gs(beta0, check, p, CDF, a = 0.5, b = 1.5, maxit = 1000, tol = 1e-6, type)
+qr_gs(beta0, check, p, CDF, a = 0.5, b = 1.5, maxit = 1000, tol = 1e-6, type)
 
 \method{nobs}{ctqr}(object, \ldots)
 \method{vcov}{ctqr}(object, \ldots)
