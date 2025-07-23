@@ -9,8 +9,8 @@ Fit quantile regression models to survival data, allowing for right censoring, l
 \tabular{ll}{
 Package: \tab ctqr\cr
 Type: \tab Package\cr
-Version: \tab 2.1\cr
-Date: \tab 2024-02-12\cr
+Version: \tab 2.2\cr
+Date: \tab 2025-07-23\cr
 License: \tab GPL-2\cr
 }
 The main function \code{\link{ctqr}} is used for model fitting. Other documented functions are \code{\link{predict.ctqr}}, to obtain prediction from a \code{ctqr} object, \code{\link{plot.ctqr}}, to plot quantile regression coefficients, and \code{\link{ctqr.control}}, that can be used to set the operational parameters for the estimation algorithm.
@@ -27,5 +27,5 @@ Frumento, P. (2022). A quantile regression estimator for interval-censored data.
 }
 \keyword{ package }
 \seealso{
-\code{\link{pchreg}}, that is used to compute a preliminary estimate of the conditional outcome distribution.
+\code{\link[pch]{pchreg}}, that is used to compute a preliminary estimate of the conditional outcome distribution.
 }

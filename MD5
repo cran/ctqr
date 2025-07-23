@@ -1,12 +1,12 @@
-dcf3eb832c846c2c93e59a6fc4fcf9cb *DESCRIPTION
+9e5700fa787a57a8423d0256ca39d362 *DESCRIPTION
 ff0c6d429c5ad40aa88fb5f0dccea299 *NAMESPACE
-ad3bba0115116323006c0f25809ae3fa *NEWS.md
+a1cf4bf7c12597a301981a75a13483b7 *NEWS.md
 7cb90e35d16cf041a511992c1e456188 *R/A0_first_step.R
 5367836ce9564dadf3d6da693de2a9a6 *R/A1_main_function.R
 1a685fb22e401b3c516b5292410980b8 *R/A2_aux_functions.R
 ddbcd8cd2276a5d93923728d977a42f0 *man/ctqr-internal.Rd
-b732413b98f28df1449fffa4e41f995c *man/ctqr-package.Rd
-0b54ee2f8a5a84605d1e445dbae2f712 *man/ctqr.Rd
+46ac9d6a454a430747c4167641892ebc *man/ctqr-package.Rd
+9133003873b231cffd29703cc4cb5291 *man/ctqr.Rd
 743507fc2724cefb9d1473afe82ceb1c *man/ctqr.control.Rd
 132dbc35cd18d95a7076fa2f460f53f2 *man/plot.ctqr.Rd
 8f31a38f59493aaa047b0321073e81cf *man/predict.ctqr.Rd

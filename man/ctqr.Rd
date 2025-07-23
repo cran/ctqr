@@ -12,7 +12,7 @@ ctqr(formula, data, weights, p = 0.5, CDF, control = ctqr.control(), \ldots)
 \arguments{
   \item{formula}{
 an object of class \dQuote{\code{\link{formula}}}: a symbolic description of the regression model. 
-The response must be a \kbd{Surv} object as returned by \code{\link{Surv}} (see \sQuote{Details}).
+The response must be a \kbd{Surv} object as returned by \code{\link[survival]{Surv}} (see \sQuote{Details}).
 }
   \item{data}{
 an optional data frame containing the variables in the model.
@@ -24,7 +24,7 @@ an optional vector of weights to be used in the fitting process. The weights wil
 numerical vector indicating the order of the quantile(s) to be fitted.
 }
   \item{CDF}{
-an object of class \dQuote{\code{pch}}, i.e., the result of a call to \code{\link{pchreg}}. If missing, 
+an object of class \dQuote{\code{pch}}, i.e., the result of a call to \code{\link[pch]{pchreg}}. If missing, 
 it will be computed internally with default settings. See \sQuote{Details}.
 }
   \item{control}{
@@ -38,7 +38,7 @@ This function implements the method described in Frumento and Bottai (2017) for 
 The left side of \kbd{formula} must be of the form \kbd{Surv(time, event)} if the data are right-censored, \kbd{Surv(time0, time, event)} if the data are right-censored and left-truncated (\kbd{time0 < time}, \code{time0} can be \kbd{-Inf}), and \kbd{Surv(time1, time2, type = "interval2")} if the data are interval-censored (use \kbd{time1 = time2} for exact observations, \kbd{time1 = -Inf} or \kbd{NA} for left-censored, and \kbd{time2 = Inf} or \kbd{NA} for right-censored). Using \kbd{Surv(time)} is also allowed and indicates that the data are neither censored nor truncated.
 
 The conditional distribution function (\code{CDF}) of the response variable represents a nuisance parameter 
-and is estimated preliminarly via \code{\link{pchreg}}. If missing, \code{CDF = pchreg(formula)} is used as default. See the \dQuote{Note} and the documentation of \command{pchreg}.
+and is estimated preliminarly via \code{\link[pch]{pchreg}}. If missing, \code{CDF = pchreg(formula)} is used as default. See the \dQuote{Note} and the documentation of \command{pchreg}.
 
 Estimation is carried out using an algorithm for gradient-based optimization. 
 To estimate the asymptotic covariance matrix, standard two-step procedures are used
@@ -99,7 +99,7 @@ Paolo Frumento <paolo.frumento@unipi.it>
 }
 
 \seealso{
-\code{\link{plot.ctqr}}, \code{\link{predict.ctqr}}, \code{\link{pchreg}}
+\code{\link{plot.ctqr}}, \code{\link{predict.ctqr}}, \code{\link[pch]{pchreg}}
 }
 \examples{
 # Using simulated data

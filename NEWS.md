@@ -1,8 +1,7 @@
-ctqr 2.1
+ctqr 2.2
 =============
 
-Changes with respect to version 2.0
+Changes with respect to version 2.1
 ------------------
-* bug fix
-* added alias to all internal functions upon request by CRAN
-* changed name of internal function: qr.gs ---> qr_gs, to avoid confusion with S3 methods
+* modified the Author field in DESCRIPTION as requested by new CRAN policy
+* added the [pkg] option whenever \link to another R package not in the base package
